@@ -11,6 +11,6 @@ def test_version_is_correct():
 
     assert version == mbf_nested_intervals.__version__
 
-    cargo_toml = tomlkit.loads(Path(Path(__file__).parent.parent / "Cargo.toml"))
+    cargo_toml = tomlkit.loads((Path(__file__).parent.parent / "Cargo.toml").read_text())
     cargo_version = cargo_toml["package"]["version"]
     assert cargo_version == version
